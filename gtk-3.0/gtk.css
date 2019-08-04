@@ -1287,6 +1287,7 @@ popover {
     box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.4);
 }
 
+
 popover>list,
 popover>.view,
 popover>iconview,
@@ -1442,7 +1443,7 @@ popover.popover-selector list row image {
     border: 1px solid rgba(92, 92, 92, 0.3);
 }
 
-csd popover.osd {
+.csd popover.osd {
 
     color: #202020;
     border: none;
@@ -1996,7 +1997,9 @@ button.flat {
     background-image: none;
 }
 
-button.flat:hover {}
+button.flat:hover {
+
+}
 
 button.flat:hover:active {}
 
@@ -2280,9 +2283,8 @@ button.osd.image-button {
 }
 
 .osd button.flat {
-
     border-color: transparent;
-    background-color: transparent;
+    /*background-color: transparent;*/
     background-image: none;
     box-shadow: none;
 }
@@ -2403,7 +2405,7 @@ button.osd.image-button {
     box-shadow: inset 1px 0 rgba(198, 205, 229, 0.25);
 }
 
-osd spinbutton:not(.vertical)>button:first-child:hover:not(:active) {
+.osd spinbutton:not(.vertical)>button:first-child:hover:not(:active) {
 
     box-shadow: none;
 }
@@ -5280,7 +5282,6 @@ toolbar.inline-toolbar toolbutton:backdrop:only-child>button.flat {
 /**** LINKED:NOT(.VERTICAL):NOT(PATH-BAR): BUTTON-RELATED ***/
 
 .linked:not(.vertical)>button {
-
     border-radius: 0;
     border-right-style: none;
 }
@@ -6454,7 +6455,6 @@ headerbar button.text-button {
     border-top-color: rgba(0, 0, 0, 0.08);
     background-color: transparent;
     background-image: linear-gradient(to bottom, rgba(100, 103, 114, 0.90), rgba(100, 103, 114, 1));
-
 
     border-radius: 5px;
     min-height: 16px;
@@ -8350,9 +8350,6 @@ searchbar {
 
 
 actionbar {
-
-
-
     padding: 6px;
     border-top: 1px solid rgba(105, 105, 105, 0.3);
     background-image: linear-gradient(to bottom, #e4e9ef, #c7cbd0);
@@ -8418,7 +8415,7 @@ statusbar button:backdrop:checked:focus {
 
 /*****************.PATH-BAR BUTTON *************************/
 
-path-bar button.text-button {
+.path-bar button.text-button {
 
     padding-left: 6px;
     padding-right: 6px;
@@ -8936,9 +8933,6 @@ menuitem.button.flat {
     background-color: transparent;
     background-image: none;
     box-shadow: none;
-}
-
-menuitem.button.flat {
 
     color: black;
     transition: none;
@@ -8955,7 +8949,6 @@ menuitem.button.flat:hover {
         1px 0px alpha(#202020, 0.05),
         0px 1px alpha(#202020, 0.3),
         0px 2px alpha(#202020, 0.05);
-
 
     background-color: transparent;
     background-image: linear-gradient(to right, rgba(100, 103, 114, 0.8), rgba(100, 103, 114, 1), rgba(100, 103, 114, 1), rgba(100, 103, 114, 0.8));
@@ -10648,7 +10641,7 @@ row:selected progressbar trough {
 .app-notification button:hover {
 
     color: #101010;
-    background-color: transparent;
+    /*background-color: transparent;*/
     background-image: linear-gradient(to top, rgba(255, 255, 255, 1),
         rgba(255, 255, 255, 1));
     border-right-color: rgba(0, 0, 0, 0.12);
@@ -14128,8 +14121,27 @@ placessidebar.sidebar row.sidebar-row:hover:selected:dir(rtl) {
       inset -36px 0 0 0 mix(shade(@places_sidebar_bg, 0.85), @places_sidebar_selected_bg_color, 0.85);
 }
 
+placessidebar.sidebar row.sidebar-row:selected {
+    /* color: shade(@places_sidebar_selected_bg_color, 1.03); */
+    /*background-color: @places_sidebar_bg;*/
+
+    background-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      @places_sidebar_selected_bg_color 36px,
+      rgba(0, 0, 0, 0) 36px,
+      rgba(0, 0, 0, 0) 100%
+    );
+
+    /*
+    box-shadow: inset 37px 0 0 0 shade(@places_sidebar_selected_bg_color, 0.75),
+        inset 37px 0 0 0 shade(@places_sidebar_selected_bg_color, 0.85);
+    */
+}
+
 placessidebar.sidebar row.sidebar-row:selected:hover,
-placessidebar.sidebar row.sidebar-row:selected:hover:dir(rtl) placessidebar.sidebar row.sidebar-row:active:hover,
+placessidebar.sidebar row.sidebar-row:selected:hover:dir(rtl),
+placessidebar.sidebar row.sidebar-row:active:hover,
 placessidebar.sidebar row.sidebar-row:active:hover:dir(rtl) {
 
     box-shadow: none;
@@ -14154,28 +14166,6 @@ placessidebar.sidebar row.sidebar-row:active:hover:dir(rtl) {
         inset -36px 0 0 0 mix(shade(@places_sidebar_bg, 0.85), @places_sidebar_selected_bg_color, 0.85);
 }
 
-placessidebar.sidebar row.sidebar-row:selected {
-
-    background-color: @places_sidebar_bg;
-}
-
-placessidebar.sidebar row.sidebar-row:selected {
-
-    /* color: shade(@places_sidebar_selected_bg_color, 1.03); */
-
-    background-image: linear-gradient(
-      to right,
-      @places_sidebar_selected_bg_color 37px,
-      rgba(0, 0, 0, 0) 37px,
-      rgba(0, 0, 0, 0) 100%
-    );
-
-    text-shadow: 0 -1px alpha(#ffffff, 0.04),
-        -1px 0px alpha(#202020, 0.05),
-        1px 0px alpha(#202020, 0.05),
-        0px 1px alpha(#202020, 0.5),
-        0px 2px alpha(#202020, 0.05);
-}
 
 placessidebar.sidebar row.sidebar-row:drop(active),
 placessidebar.sidebar row.sidebar-row.sidebar-new-bookmark-row:drop(active) {
@@ -14219,9 +14209,29 @@ placessidebar.sidebar .sidebar-button {
     color: @places_sidebar_fg_color;
 }
 
-placessidebar.sidebar .sidebar-button:hover {
 
-    color: @places_sidebar_fg_color;
+placessidebar.sidebar row.sidebar-row:selected .sidebar-button {
+    background-image: none;
+    background-color: shade(@places_sidebar_bg, 0.85);
+    border: 1px solid shade(@places_sidebar_bg, 0.75);
+    /*background-color: transparent;*/
+}
+
+
+placessidebar.sidebar row.sidebar-row:selected .sidebar-button:hover,
+placessidebar.sidebar .sidebar-button:hover {
+    /* TODO: change color */
+    border: 1px solid;
+
+    color: #ffffff;
+    text-shadow: 0 -1px alpha(#ffffff, 0.04),
+        -1px 0px alpha(#202020, 0.05),
+        1px 0px alpha(#202020, 0.05),
+        0px 1px alpha(#202020, 0.3),
+        0px 2px alpha(#202020, 0.05);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.8);
+
 }
 
 placessidebar.sidebar .sidebar-button:active {
